@@ -1,4 +1,4 @@
-package guru.springframework.cgpetclinic;
+package cgpetclinic;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
