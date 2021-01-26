@@ -12,5 +12,4 @@ class CgPetClinicApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
