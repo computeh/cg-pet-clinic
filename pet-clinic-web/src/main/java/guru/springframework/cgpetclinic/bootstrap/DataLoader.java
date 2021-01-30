@@ -4,8 +4,6 @@ import guru.springframework.cgpetclinic.model.Owner;
 import guru.springframework.cgpetclinic.model.Veterinary;
 import guru.springframework.cgpetclinic.services.OwnerService;
 import guru.springframework.cgpetclinic.services.VeterinaryService;
-import guru.springframework.cgpetclinic.services.map.OwnerServiceMap;
-import guru.springframework.cgpetclinic.services.map.VeterinaryServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +13,11 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VeterinaryService veterinaryService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        veterinaryService = new VeterinaryServiceMap();
-
+    // Spring wires data into a Spring context
+    // @autowired is not needed if we are using a constructor configuration
+    public DataLoader(OwnerService ownerService, VeterinaryService veterinaryService) {
+        this.ownerService = ownerService;
+        this.veterinaryService = veterinaryService;
     }
 
     @Override
