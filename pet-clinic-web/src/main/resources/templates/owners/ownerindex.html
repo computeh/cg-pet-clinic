@@ -5,7 +5,24 @@
     <title>List of Owners</title>
 </head>
 <body>
-    <h1 th:text="'List of Owners'">List of Owners...</h1>
-
+<!--/*@thymesVar id="owner" type ="guru.springframework.cgpetclinic.mode.Owner"*/-->
+    <h1 th:text="'List of Owners'">Owners List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--"owners" is the attribute name that thymeleaf is going to be looking for -->
+            <tr th:each="owner: ${owners}">
+                <td th:text="${owner?.id}">1</td>
+                <td th:text="${owner?.firstName}">Joe</td>
+                <td th:text="${owner?.lastName}">Buck</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
