@@ -14,6 +14,7 @@ import java.io.Serializable;
  */
 
 @MappedSuperclass // JPA Base Class
+
 public class BaseEntity implements Serializable {
 
     @Id
