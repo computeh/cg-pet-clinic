@@ -1,10 +1,7 @@
 package guru.springframework.cgpetclinic.bootstrap;
 
 import guru.springframework.cgpetclinic.model.*;
-import guru.springframework.cgpetclinic.services.OwnerService;
-import guru.springframework.cgpetclinic.services.PetTypeService;
-import guru.springframework.cgpetclinic.services.SpecialtyService;
-import guru.springframework.cgpetclinic.services.VeterinaryService;
+import guru.springframework.cgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,16 +14,18 @@ public class DataLoader implements CommandLineRunner {
     private final VeterinaryService veterinaryService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
     // Spring wires data into a Spring context
     // @autowired is not needed if we are using a constructor configuration
 
-    public DataLoader(OwnerService ownerService, VeterinaryService veterinaryService,
-                      PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VeterinaryService veterinaryService, PetTypeService petTypeService,
+                      SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.veterinaryService = veterinaryService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -82,7 +81,7 @@ public class DataLoader implements CommandLineRunner {
         owner2.setAddress("123 Brickerel");
         owner2.setCity("Miami");
         owner2.setTelephone("1231231234");
-        ownerService.save(owner2);
+
 
         Pet mikesCat = new Pet();
         mikesCat.setName("Mike Cat");
@@ -90,6 +89,14 @@ public class DataLoader implements CommandLineRunner {
         mikesCat.setBirthDate(LocalDate.now());
         mikesCat.setPetType(savedCatPetType);
         owner2.getPets().add(mikesCat);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(mikesCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+
+        ownerService.save(owner2); // Must persist Owner before persisting Visit
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners...");
 

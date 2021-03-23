@@ -2,9 +2,11 @@ package guru.springframework.cgpetclinic.services.map;
 
 import guru.springframework.cgpetclinic.model.Visit;
 import guru.springframework.cgpetclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
     @Override
     public Set<Visit> findAll() {
@@ -14,7 +16,6 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
-
     }
 
     @Override
