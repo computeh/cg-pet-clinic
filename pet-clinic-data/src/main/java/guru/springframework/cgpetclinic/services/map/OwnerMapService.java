@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-@Profile({"default", "map"})
+@Profile({"default", "map"}) // If no active profiles are set, properties will default to this profile
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
