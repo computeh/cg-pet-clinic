@@ -1,10 +1,10 @@
 package guru.springframework.cgpetclinic.services.springdatajpa;
 
 import guru.springframework.cgpetclinic.model.Owner;
+import guru.springframework.cgpetclinic.repositories.OwnerRepository;
+import guru.springframework.cgpetclinic.repositories.PetRepository;
+import guru.springframework.cgpetclinic.repositories.PetTypeRepository;
 import guru.springframework.cgpetclinic.services.OwnerService;
-import guru.springframework.repositories.OwnerRepository;
-import guru.springframework.repositories.PetRepository;
-import guru.springframework.repositories.PetTypeRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 

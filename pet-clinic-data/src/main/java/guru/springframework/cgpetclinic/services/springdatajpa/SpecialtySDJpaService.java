@@ -1,8 +1,8 @@
 package guru.springframework.cgpetclinic.services.springdatajpa;
 
 import guru.springframework.cgpetclinic.model.Specialty;
+import guru.springframework.cgpetclinic.repositories.SpecialtyRepository;
 import guru.springframework.cgpetclinic.services.SpecialtyService;
-import guru.springframework.repositories.SpecialtyRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 

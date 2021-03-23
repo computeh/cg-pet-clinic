@@ -1,8 +1,8 @@
 package guru.springframework.cgpetclinic.services.springdatajpa;
 
 import guru.springframework.cgpetclinic.model.Visit;
+import guru.springframework.cgpetclinic.repositories.VisitRepository;
 import guru.springframework.cgpetclinic.services.VisitService;
-import guru.springframework.repositories.VisitRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
